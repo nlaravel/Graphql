@@ -85,6 +85,7 @@ return [
                 // ExampleMutation::class,
                 'createBook'=>\App\GraphQL\Mutations\CreateBookMutaition::class,
                 'updateBook'=>\App\GraphQL\Mutations\UpdateBookMutaition::class,
+                'deleteBook'=>\App\GraphQL\Mutations\DeleteBookMutaition::class,
             ],
             // The types only available in this schema
             'types' => [
