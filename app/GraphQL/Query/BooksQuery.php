@@ -9,33 +9,25 @@ use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Query;
 use App\Models\Book;
 
-class BookQuery extends Query{
+class BooksQuery extends Query{
 
     protected $attributes = [
-        'name' => 'book',
+        'name' => 'books',
     ];
-    /* determine the  type of one object of book */
+    /* determine the  type of list of  object of books */
     public function type(): Type
     {
-        return GraphQL::type('BookType');
+        return  Type::listOf(GraphQL::type('BookType'));
     }
-    /* determine the  arguments*/
-    public function args(): array
-    {
-        return [
-            'id' => [
-                'name' => 'id',
-                'type' => Type::int(),
-            ],
-        ];
-    }
+    /* don't  have   arguments because return collection*/
+
 
 
     /* how get data from data base */
     public function resolve($root, array $args)
     {
 
-            return Book::find($args['id']);
+        return Book::all();
 
     }
 

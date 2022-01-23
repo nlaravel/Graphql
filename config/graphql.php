@@ -76,6 +76,7 @@ return [
             'query' => [
                 // ExampleQuery::class,
                 "book"=>\App\GraphQl\Query\BookQuery::class,
+                "books"=>\App\GraphQl\Query\BooksQuery::class,
             ],
             'mutation' => [
                 // ExampleMutation::class,
