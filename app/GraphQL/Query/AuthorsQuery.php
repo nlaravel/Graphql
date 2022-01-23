@@ -34,8 +34,6 @@ class AuthorsQuery extends Query{
         /* get  relation */
         $with = $fields->getRelations();
 
-
-
         return Author::select($select)->with($with)->get();
 
     }
