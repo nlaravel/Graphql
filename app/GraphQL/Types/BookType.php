@@ -1,7 +1,10 @@
 <?php
 
 namespace App\GraphQl\Types;
+use Closure;
+use GraphQL\Type\Definition\ResolveInfo;
 use App\Models\User;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 use App\Models\Book;
@@ -33,6 +36,10 @@ use App\Models\Book;
              ],
              'number_of_pages' => [
                  'type' => Type::int(),
+             ],
+
+             'author' => [
+                 'type' =>GraphQL::type('AuthorType')
              ],
          ];
      }

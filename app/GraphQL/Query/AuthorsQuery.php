@@ -24,10 +24,19 @@ class AuthorsQuery extends Query{
 
 
     /* how get data from data base */
-    public function resolve($root, array $args)
-    {
+    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields){
 
-        return Author::all();
+       // return Author::all();
+
+        $fields = $getSelectFields();
+        /* get selected field */
+        $select = $fields->getSelect();
+        /* get  relation */
+        $with = $fields->getRelations();
+
+
+
+        return Author::select($select)->with($with)->get();
 
     }
 

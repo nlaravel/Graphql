@@ -1,7 +1,9 @@
 <?php
 
 namespace App\GraphQl\Types;
+use GraphQL\Type\Definition\ResolveInfo;
 use App\Models\User;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 use App\Models\Author;
@@ -30,6 +32,9 @@ class   AuthorType extends GraphQLType {
             ],
             'age' => [
                 'type' => Type::string(),
+            ],
+            'books' => [
+                'type' => Type::listOf(GraphQL::type('BookType')),
             ],
 
         ];

@@ -13,4 +13,9 @@ class Author extends Model
         'name',
         'age',
     ];
+
+    public  function books(){
+
+        return $this->hasMany(Book::class);
+    }
 }

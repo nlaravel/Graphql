@@ -22,12 +22,29 @@ class BooksQuery extends Query{
     /* don't  have   arguments because return collection*/
 
 
-
     /* how get data from data base */
-    public function resolve($root, array $args)
-    {
 
-        return Book::all();
+    /* use when donn't have relation
+//    public function resolve($root, array $args)
+//    {
+//
+//        return Book::all();
+//
+//    }
+
+    /* use when  have relation */
+    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields){
+
+        $fields = $getSelectFields();
+        /* get selected field */
+        $select = $fields->getSelect();
+        /* get  relation */
+        $with = $fields->getRelations();
+
+
+
+        return Book::select($select)->with($with)->get();
+
 
     }
 

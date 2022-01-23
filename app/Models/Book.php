@@ -11,6 +11,13 @@ class Book extends Model
         'title',
         'year',
         'number_of_pages',
+        'author_id',
     ];
     use HasFactory;
+
+
+    public  function author(){
+
+      return  $this->belongsTo(Author::class);
+    }
 }
