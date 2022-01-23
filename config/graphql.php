@@ -77,6 +77,9 @@ return [
                 // ExampleQuery::class,
                 "book"=>\App\GraphQl\Query\BookQuery::class,
                 "books"=>\App\GraphQl\Query\BooksQuery::class,
+                "author"=>\App\GraphQl\Query\AuthorQuery::class,
+                "authors"=>\App\GraphQl\Query\AuthorsQuery::class,
+
             ],
             'mutation' => [
                 // ExampleMutation::class,
@@ -85,6 +88,7 @@ return [
             'types' => [
                 // ExampleType::class,
                 \App\GraphQl\Types\BookType::class,
+                \App\GraphQl\Types\AuthorType::class,
             ],
 
             // Laravel HTTP middleware
